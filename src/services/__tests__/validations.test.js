@@ -17,4 +17,20 @@ describe("validations tests suites - isEmpty", () => {
     });
 });
 
+const validations = require("../validations");
+
+describe("validation function tests", () => {
+    test("gamertag is at least 8 characters", () => {
+        const result = validations("longenoughtGamerTag");
+        expect(result).toBeTruthy();
+    });
+});
+
+describe("validation function tests", () => {
+    test("gamertag is less than 8 characters", () => {
+        const result = validations("short");
+        expect(result).toBeFalsy();
+    });
+});
+
 // TODO: Create tests suite for validation function
