@@ -20,5 +20,4 @@ const validatenumber = (name) => {
 };
 
 exports.isEmpty = isEmpty;
-
-module.exports = validations;
+exports.validations = validations();
