@@ -1,12 +1,18 @@
 // TODO: Add here the function to validate
 const validations = (name) => {
-    return validateTag(name);
+    if (validateLength(name) && validateSpecial(name))
+        return true;
+    return false;
 };
 
 const isEmpty = (label) => !label || label.length === 0;
 
-const validateTag = (name) => {
+const validateLength = (name) => {
     return /[0-9a-zA-Z]{8,}/.test(name);
+};
+
+const validateSpecial = (name) => {
+    return /^(?=.*[@#$%^&+=]).*$/.test(name);
 };
 
 exports.isEmpty = isEmpty;

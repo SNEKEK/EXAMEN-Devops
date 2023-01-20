@@ -21,16 +21,27 @@ const validations = require("../validations");
 
 describe("validation function tests", () => {
     test("gamertag is at least 8 characters", () => {
-        const result = validations("longenoughtGamerTag");
+        //length
+        const result = validations("longenough&tGamerTag");
+        expect(result).toBeTruthy();
+    });
+
+    test("gamertag is less than 8 characters", () => {
+        const result = validations("short&");
+        expect(result).toBeFalsy();
+    });
+
+    //special character
+    test("gamertag doesn't contain special", () => {
+        const result = validations("longenoughfezagze");
+        expect(result).toBeFalsy();
+    });
+    test("gamertag contains special", () => {
+        const result = validations("&longenoughfezagze");
         expect(result).toBeTruthy();
     });
 });
 
-describe("validation function tests", () => {
-    test("gamertag is less than 8 characters", () => {
-        const result = validations("short");
-        expect(result).toBeFalsy();
-    });
-});
+
 
 // TODO: Create tests suite for validation function
